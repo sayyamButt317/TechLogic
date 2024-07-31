@@ -7,8 +7,6 @@ export default defineConfig({
     proxy: {
       '/api/v1': {
         target: 'https://techlogic-production.up.railway.app',
-        changeOrigin: true, // Ensure this is set
-        secure: false,      // Sometimes needed depending on the SSL configuration
       },
     },
   },
