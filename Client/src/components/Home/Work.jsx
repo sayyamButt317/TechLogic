@@ -1,16 +1,26 @@
-
 import StepperWidget from "../../Utils/StepperWidget";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react"; // Import useState and useEffect
 
 const Work = () => {
   const navigate = useNavigate();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Detect screen size on initial render and resize
+  useEffect(() => {
+    const checkScreenSize = () => setIsSmallScreen(window.innerWidth < 768); 
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize); 
+
+  }, []);
 
   return (
-    <section className="w-full py-10 md:py-20 bg-gray-100">
+    <section className="w-full   
+ py-10 md:py-20 bg-gray-100">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-10 md:gap-16">
-
           {/* Text Content */}
           <div className="lg:w-1/2 text-gray-800">
             <h2 className="text-sky-400 text-sm font-medium mb-2">HOW WE WORK</h2>
@@ -39,10 +49,18 @@ const Work = () => {
             </motion.button> 
           </div>
 
-          {/* Stepper Widget */}
-          <div className="lg:w-1/2 flex justify-center lg:justify-end mt-10 lg:mt-0">
-            <StepperWidget /> 
-          </div>
+            {/* Stepper Widget - Conditionally position */}
+            {isSmallScreen ? ( 
+            // Mobile: Stepper below text
+            <div className="lg:w-1/2 flex justify-center mt-10 lg:mt-0"> 
+              <StepperWidget />
+            </div>
+          ) : (
+            // Desktop: Stepper alongside text
+            <div className="lg:w-1/2 flex justify-center lg:justify-end mt-10 lg:mt-0">
+              <StepperWidget />
+            </div>
+          )}
         </div>
       </div>
     </section>
