@@ -11,6 +11,9 @@ scroll-behavior: smooth;
 }
 body{
     font-family: 'Urbanist', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 .container{
     max-width:1170px;
