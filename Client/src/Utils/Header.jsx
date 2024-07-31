@@ -1,16 +1,24 @@
-import  { useState } from "react";
+import { useState, useEffect } from "react";
 import LOGO from "./Logo";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Detect screen size on initial render and resize
+  useEffect(() => {
+    const checkScreenSize = () => setIsSmallScreen(window.innerWidth < 768); // Adjust the breakpoint as needed
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   const handleNavigation = (path) => {
-    window.scrollTo(0, 0);  // Scroll to the top
+    window.scrollTo(0, 0);
     navigate(path);
-    setIsMenuOpen(false);  // Close mobile menu after navigation
+    setIsMenuOpen(false); // Close menu on small screens
   };
 
   return (
@@ -21,25 +29,30 @@ function Header() {
           <LOGO />
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white focus:outline-none"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-
-        {/* Navigation Links */}
-        <nav className={`md:flex items-center gap-8 ${isMenuOpen ? 'block' : 'hidden'} md:static md:bg-transparent absolute top-16 left-0 w-full bg-black md:bg-black md:top-auto md:left-auto md:w-auto`}>
+        {/* Navigation - Conditionally render for screen size */}
+        {isSmallScreen ? (
+          // Mobile Menu
+          <>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white focus:outline-none">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            {isMenuOpen && (
+              <nav className="absolute top-16 left-0 w-full bg-black">
+                {/* ... menu items ... */}
+              </nav>
+            )}
+          </>
+        ) : (
+          // Desktop Menu
+          <nav className={`flex items-center gap-8 ${isMenuOpen ? 'block' : 'hidden'} md:static md:bg-transparent absolute top-16 left-0 w-full bg-black md:bg-black md:top-auto md:left-auto md:w-auto`}>
           <p onClick={() => handleNavigation('/')} className="cursor-pointer py-2 md:py-0 hover:text-gray-400 transition duration-300">Home</p>
           <p onClick={() => handleNavigation('/Service')} className="cursor-pointer py-2 md:py-0 hover:text-gray-400 transition duration-300">Services</p>
           <p onClick={() => handleNavigation('/About')} className="cursor-pointer py-2 md:py-0 hover:text-gray-400 transition duration-300">About</p>
           <p onClick={() => handleNavigation('/Contact')} className="cursor-pointer py-2 md:py-0 hover:text-gray-400 transition duration-300">Contact</p>
         </nav>
+        )}
       </div>
     </header>
   );
