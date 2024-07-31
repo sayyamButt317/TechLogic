@@ -21,9 +21,9 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/v1/form', formData);
+      const response = await axios.post('/api/v1/form', formData); // Proxy will handle this
 
-      if (response.status >= 200 && response.status < 300) { // Success range (including 201, 204, etc.)
+      if (response.status >= 200 && response.status < 300) {
         setResult("Message Sent!");
         setFormData({ // Reset form fields
           username: "",
