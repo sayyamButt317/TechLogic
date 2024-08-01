@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Sidebar from "./sidebar";
 import { useNavigate } from "react-router-dom";
 import manwithlaptop from "../../assets/manwithlaptop.png";
-
+import SocialIcons from "../../Utils/socialicons"
 function Hero() {
   const navigate = useNavigate();
   return (
@@ -45,6 +45,7 @@ function Hero() {
               >
                 Contact Us
               </motion.button>
+             <SocialIcons/>
             </div>
           </motion.div>
         </div>

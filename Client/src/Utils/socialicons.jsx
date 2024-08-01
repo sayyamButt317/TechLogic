@@ -15,6 +15,7 @@ const SocialIcons = () => {
      
 
       {icons.map((icon, index) => (
+        // eslint-disable-next-line react/jsx-key
         <span>
           <a
             key={index}
