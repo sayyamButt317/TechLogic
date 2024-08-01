@@ -25,7 +25,7 @@ function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-black text-white z-10 overflow-x-hidden">
+    <header className="fixed top-0 left-0 w-full bg-black text-white z-10">
       <div className="container mx-auto px-4 py-4 lg:py-6 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <LOGO />
