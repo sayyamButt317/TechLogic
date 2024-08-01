@@ -21,11 +21,11 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/v1/form', formData); // Proxy will handle this
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/form`, formData);
 
       if (response.status >= 200 && response.status < 300) {
         setResult("Message Sent!");
-        setFormData({ // Reset form fields
+        setFormData({
           username: "",
           email: "",
           phone: "",
@@ -33,12 +33,12 @@ const ContactForm = () => {
           text: "",
         });
       } else {
-        setResult("Message Failed! (Error: " + response.status + ")"); // Show error status
+        setResult("Message Failed! (Error: " + response.status + ")");
       }
 
     } catch (error) {
       console.error("Error:", error);
-      setResult("Message Failed! (Network Error)"); // Indicate network issues
+      setResult("Message Failed! (Network Error)");
     }
   };
 
