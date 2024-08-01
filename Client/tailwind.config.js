@@ -11,7 +11,8 @@ export default {
         headingColor: "#081e21",
         smallTextColor: "#193256",
         logobgColor: "#581c87",
-        containercolor:"#c4b5fd"
+        containercolor:"#36454F",
+        tilecolor:"#EOEOEO"
       
       },
       fontSize: {

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const OurStory = () => {
   const navigate = useNavigate();
   return (
-    <section className="w-full bg-gray-200 py-10 md:py-20"> {/* Changed to section for semantics */}
+    <section className="w-full py-10 md:py-20"> {/* Changed to section for semantics */}
       <div className="container mx-auto"> {/* Removed unnecessary height and width */}
         <div className="rounded-md bg-slate-200 shadow-md p-8 md:p-12"> {/* Added shadow, improved padding */}
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16"> {/* Increased gap for better spacing */}

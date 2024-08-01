@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaChartLine, FaCloud, FaLaptopCode } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 const Features = [
   {
     icon: <FaChartLine className="text-3xl text-blue-500 md:text-6xl" />,
@@ -17,6 +17,7 @@ const Features = [
 ];
 
 function CompanyServices() {
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-gradient-to-r from-blue-950 to-blue-950 py-20 h-full rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100 p-6 mt-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,6 +60,7 @@ function CompanyServices() {
         <div className="flex justify-center mt-10">
           <motion.button
             whileHover={{ scale: 1.1 }}
+            onClick={() => navigate("/Contact")}
             className="bg-white border border-white text-blue-500 font-bold px-6 py-3 rounded-full"
           >
             Contact Us!

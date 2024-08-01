@@ -15,7 +15,7 @@ const Clients = () => {  // Renamed for clarity
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"> 
                     {/* Engagement Model 1 */}
-                    <div className="bg-orange-600 rounded-lg p-6 md:p-8 shadow-md">
+                    <div className="bg-containercolor rounded-lg p-6 md:p-8 shadow-md">
                         <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4">
                             Dedicated Hiring
                         </h3>

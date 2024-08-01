@@ -29,6 +29,7 @@ function ServicePage() {
               <motion.button
                   onClick={() => navigate('/Service')}
                   whileHover={{scale: 1.1}}
+                  
                   className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full"
               >
                 Explore Our Services

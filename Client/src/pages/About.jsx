@@ -3,6 +3,7 @@ import Aboutus from '../components/About/Aboutus';
 import Feedback from '../components/About/Feedback'; 
 import Vision from "../components/About/vision";
 import Faqs from "../components/About/Faqs";
+import Mission from '../components/About/mission';
 function About() {
   return (
 <>
