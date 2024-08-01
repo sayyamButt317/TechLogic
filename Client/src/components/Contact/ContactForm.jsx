@@ -19,10 +19,10 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/form`, formData);
-
+  
       if (response.status >= 200 && response.status < 300) {
         setResult("Message Sent!");
         setFormData({
@@ -35,7 +35,7 @@ const ContactForm = () => {
       } else {
         setResult("Message Failed! (Error: " + response.status + ")");
       }
-
+  
     } catch (error) {
       console.error("Error:", error);
       setResult("Message Failed! (Network Error)");
