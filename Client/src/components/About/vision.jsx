@@ -1,5 +1,5 @@
 import { FaLaptopCode, FaCloud, FaChartLine } from "react-icons/fa";
-import { motion } from 'framer-motion'; // Added for animation
+import { motion } from 'framer-motion'; 
 
 const Vision = () => {
   return (

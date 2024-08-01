@@ -1,4 +1,3 @@
-import React from "react";
 import aboutbg from "../../assets/aboutbg.jpg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";

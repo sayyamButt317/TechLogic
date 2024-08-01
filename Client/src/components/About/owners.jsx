@@ -1,4 +1,3 @@
-import React from "react";
 import web from "../../assets/AppDevelopment.gif";
 import Sayyam from "../../assets/sayyam.png";
 import Desktop from "../../assets/Desktop.gif";
