@@ -1,31 +1,48 @@
-const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    try {
-      console.log('Submitting form data:', formData);
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/form`, formData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-  
-      console.log('Response:', response);
-  
-      if (response.status >= 200 && response.status < 300) {
-        setResult("Message Sent!");
-        setFormData({
-          username: "",
-          email: "",
-          phone: "",
-          location: "",
-          text: "",
-        });
-      } else {
-        setResult("Message Failed! (Error: " + response.status + ")");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setResult("Message Failed! (Network Error)");
-    }
-  };
-  
+import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import userRouter from "./Routes/static.routes.js";
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app = express();
+
+const allowedOrigins = process.env.PROD_CORS_ORIGINS?.split(',') || [];
+
+// Middleware
+app.use(
+    cors({
+        origin: (origin, callback) => {
+            // Allow requests with no origin (like mobile apps, curl requests)
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.indexOf(origin) === -1) {
+                const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+                return callback(new Error(msg), false);
+            }
+            return callback(null, true);
+        },
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"], // Ensure headers are specified
+    })
+);
+
+// Preflight request handling
+app.options('*', cors());
+
+// Middleware to parse JSON and URL-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+// Routes Declaration
+app.use("/api/v1/", userRouter);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+export { app };
