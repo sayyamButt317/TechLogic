@@ -24,8 +24,14 @@ app.use(
         },
         credentials: true,
         methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"], // Ensure headers are specified
     })
 );
+
+// Preflight request handling
+app.options('*', cors());
+
+// Middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
