@@ -32,4 +32,32 @@ section{
     line-height: 20px;
     
   }
+  /* Global styles for mobile view */
+@media (max-width: 767px) {
+    .sidebar-container {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 360px; /* Optional: adjust based on your design */
+      flex-direction: row;
+      gap: 5px;
+    }
+  
+    .sidebar-container > div {
+      width: 75px;
+      height: 75px;
+      padding: 8px;
+    }
+  
+    .sidebar-container h2 {
+      font-size: 1rem;
+    }
+  
+    .sidebar-container p {
+      font-size: 0.75rem;
+    }
+  }
+  
   
