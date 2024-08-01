@@ -57,9 +57,12 @@ const Frameworks = () => {
               className="flex flex-col items-center justify-center p-4 rounded-md shadow-md bg-white"
             >
               <img
+                 data-aos="fade-up"
+              data-aos-duration="300"
                 src={icon.image}
                 width={icon.width}
                 height="auto"
+                loading="lazy"
                 alt={icon.image.split("/").pop().split(".")[0]} // Extract filename as alt text
               />
             </motion.div>

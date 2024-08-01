@@ -6,7 +6,7 @@ function ServicePage() {
   const navigate = useNavigate();
 
   return (
-      <>
+      
         <div className="relative w-full py-16 bg-cover bg-center h-screen" style={{ backgroundImage: `url(${globe})` }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white text-center justify-between">
             <motion.div
@@ -43,7 +43,7 @@ function ServicePage() {
             </div>
           </div>
         </div>
-      </>
+      
   );
 }
 
