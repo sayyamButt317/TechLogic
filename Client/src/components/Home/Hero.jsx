@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import Sidebar from "./sidebar";
 import { useNavigate } from "react-router-dom";
 import manwithlaptop from "../../assets/manwithlaptop.png";
 import SocialIcons from "../../Utils/socialicons";
+import Sidebar from "./sidebar";
 
 function Hero() {
   const navigate = useNavigate();
+
   return (
     <div className="relative w-full min-h-screen bg-black overflow-hidden">
       {/* Blurred Background Image */}
@@ -14,7 +15,7 @@ function Hero() {
         style={{ backgroundImage: `url(${manwithlaptop})` }}
       />
       {/* Container for content */}
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 relative z-20 h-full flex flex-col justify-between">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 relative h-full flex flex-col justify-between">
         {/* Heading */}
         <div className="pt-20 md:pt-40 text-center w-full text-white">
           <motion.h1
@@ -67,7 +68,6 @@ function Hero() {
               >
                 Contact Us
               </motion.button>
-              
             </div>
             <SocialIcons />
           </motion.div>
