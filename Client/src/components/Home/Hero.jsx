@@ -67,8 +67,9 @@ function Hero() {
               >
                 Contact Us
               </motion.button>
-              <SocialIcons />
+              
             </div>
+            <SocialIcons />
           </motion.div>
         </div>
       </div>
