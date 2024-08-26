@@ -8,7 +8,10 @@ import Home from "./pages/Home";
 import Service from "./pages/Service";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ReactGA from 'react-ga4';
+
 function App() {
+  ReactGA.initialize('G-SMFF8T5TTC');
   useEffect(() => {
     Aos.init();
   }, []);

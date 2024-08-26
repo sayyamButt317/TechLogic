@@ -96,7 +96,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <div className="bg-black p-6 text-center">
-        <span>© 2023 Copyright:</span>
+        <span>© 2024 Copyright:</span>
         <div className="font-semibold text-neutral-600 dark:text-white">
           TechLogic
         </div>
