@@ -28,7 +28,6 @@ router.post("/form", async (req, res) => {
 
 
 //  endpoint to get all form data
-
 router.get("/formdata", async (req, res) => {
   try {
     const formData = await Form.find();

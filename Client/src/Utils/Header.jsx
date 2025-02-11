@@ -8,11 +8,11 @@ function Header() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Use Effect for screen resize
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        setIsMenuOpen(false); // Close the menu when screen is large enough
+        setIsMenuOpen(false); 
       }
     };
     window.addEventListener('resize', handleResize);
@@ -25,7 +25,7 @@ function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-black text-white z-10">
+    <header className="fixed top-0 left-0 w-full bg-transparent text-black z-10">
       <div className="container mx-auto px-4 py-4 lg:py-6 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <LOGO />

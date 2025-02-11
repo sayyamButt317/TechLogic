@@ -1,7 +1,7 @@
 function Logo() {
     return (
         <div className="flex items-center gap-2">
-      <span className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-thin md:font-serif rounded-full flex items-center justify-center">
+      <span className="w-10 h-10 bg-red-600 text-white text-sm font-thin md:font-serif rounded-full flex items-center justify-center">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -12,7 +12,7 @@ function Logo() {
         </svg>
       </span>
             <div>
-                <h2 className="text-white ">TechLogic</h2>
+                <h2 className="text-black ">TechLogic</h2>
             </div>
         </div>
     );
